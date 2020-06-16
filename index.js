@@ -75,11 +75,13 @@ console.log(getWinnersByYear(getWinners, getYears));
 
 /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(cb) {
-    const goals = cb(fifaData).reduce( )
+function getAverageGoals(data) {
+    const homeGoals = data.reduce((a, b) => {return a + b['Home Team Goals']}, 0) / data.length
+    const awayGoals = data.reduce((a, b) => {return a + b['Away Team Goals']}, 0) / data.length
+    return [homeGoals, awayGoals]
 };
 
-console.log(getAverageGoals(getFinals));
+console.log(getAverageGoals(fifaData));
 
 /// STRETCH 🥅 //
 
